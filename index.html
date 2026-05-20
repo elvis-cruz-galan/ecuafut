@@ -51,39 +51,32 @@
         } /* Estilos del Menú de Navegación */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* ¡Este es el truco! Manda la marca a la izquierda y el menú a la derecha */
     align-items: center;
-    background-color: #1a2238; /* Gris oscuro profundo */
-    padding: 15px 30px;
-    border-bottom: 2px solid #38bdf8; /* Línea inferior llamativa */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffd700; /* Dorado para la marca */
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    background-color: #1a2238;
+    padding: 15px 5%; /* Le da un margen limpio a los lados */
+    border-bottom: 2px solid #38bdf8;
 }
 
 .navbar-menu {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 30px; /* ¡Esto le da una separación perfecta de 30 píxeles a cada opción! */
     margin: 0;
     padding: 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-decoration: none;
 }
 
 .navbar-item a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1rem;
     font-weight: 500;
-    transition: color 0.3s ease;
 }
 
 .navbar-item a:hover {
@@ -105,11 +98,9 @@
 </head>
 <body>
 
-    <nav class="navbar">
+<nav class="navbar">
         <a href="#" class="navbar-brand">Ecuafut</a>
-        
         <ul class="navbar-menu">
-            
             <li class="navbar-item"><a href="#">Inicio</a></li>
             <li class="navbar-item"><a href="#">Equipos</a></li>
             <li class="navbar-item"><a href="#">Tabla</a></li>
