@@ -17,7 +17,7 @@
             min-height: 100vh;
         }
 
-        /* BARRA DE NAVEGACIÓN - Diseño Limpio */
+        /* BARRA DE NAVEGACIÓN */
         .nav-box {
             display: flex;
             justify-content: space-between;
@@ -58,8 +58,8 @@
 
         /* Contenedor Principal */
         .container {
-            max-width: 800px;
-            margin: 60px auto;
+            max-width: 1000px;
+            margin: 40px auto;
             padding: 20px;
             text-align: center;
             flex: 1;
@@ -68,27 +68,73 @@
         h1 {
             font-size: 3rem;
             color: #ffd700;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             letter-spacing: 2px;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.6;
             color: #8b949e;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
-        .badge {
-            display: inline-block;
-            background-color: #1f293d;
-            color: #38bdf8;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            border: 1px solid #38bdf8;
+        /* SECCIÓN DE EQUIPOS (GRID) */
+        .equipos-section {
+            margin-top: 50px;
         }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            text-align: left;
+            border-left: 4px solid #38bdf8;
+            padding-left: 15px;
+        }
+
+        .equipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        /* Estilo General de las Tarjetas */
+        .club-card {
+            background-color: #161b22;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #30363d;
+        }
+
+        .club-card:hover {
+            transform: translateY(-5px); /* Efecto de levante al pasar el mouse */
+        }
+
+        .club-mock-logo {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .club-card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.3rem;
+            color: #ffffff;
+        }
+
+        .club-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        /* BORDES PERSONALIZADOS CON LOS COLORES DE CADA CLUB */
+        .bsc { border-bottom: 4px solid #ffd700; }     /* Barcelona - Amarillo */
+        .idv { border-bottom: 4px solid #0052cc; }     /* Independiente - Azul */
+        .ldu { border-bottom: 4px solid #ffffff; }     /* Liga de Quito - Blanco */
+        .cse { border-bottom: 4px solid #0080ff; }     /* Emelec - Eléctrico */
 
         /* Pie de página */
         footer {
@@ -98,6 +144,7 @@
             font-size: 0.9rem;
             color: #64748b;
             border-top: 1px solid #21262d;
+            margin-top: 50px;
         }
 
         /* Adaptación para Celulares */
@@ -112,6 +159,9 @@
             }
             h1 {
                 font-size: 2.2rem;
+            }
+            .section-title {
+                text-align: center;
             }
         }
     </style>
@@ -130,8 +180,40 @@
 
     <div class="container">
         <h1>ECUAFUT</h1>
-        <p>Próximamente, la base de datos definitiva con toda la historia, estadísticas, escudos y campeones de la LigaPro desde su fundación en 2019.</p>
-        <div class="badge">⚙️ Sitio en Desarrollo Activo</div>
+        <p>La base de datos definitiva con toda la historia, estadísticas, escudos y campeones de la LigaPro desde su fundación en 2019.</p>
+        
+        <div class="equipos-section">
+            <h2 class="section-title">Clubes Destacados</h2>
+            
+            <div class="equipos-grid">
+                
+                <div class="club-card bsc">
+                    <div class="club-mock-logo">🟡</div>
+                    <h3>Barcelona S.C.</h3>
+                    <p>Guayaquil</p>
+                </div>
+
+                <div class="club-card ldu">
+                    <div class="club-mock-logo">⚪</div>
+                    <h3>Liga de Quito</h3>
+                    <p>Quito</p>
+                </div>
+
+                <div class="club-card idv">
+                    <div class="club-mock-logo">⚫</div>
+                    <h3>Independiente del Valle</h3>
+                    <p>Sangolquí</p>
+                </div>
+
+                <div class="club-card cse">
+                    <div class="club-mock-logo">🔵</div>
+                    <h3>Emelec</h3>
+                    <p>Guayaquil</p>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
     <footer>
