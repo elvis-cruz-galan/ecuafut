@@ -103,20 +103,52 @@
         .club-card {
             background-color: #161b22;
             border-radius: 12px;
-            padding: 30px 20px;
+            padding: 25px 20px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #30363d;
         }
 
         .club-card:hover {
-            transform: translateY(-5px); /* Efecto de levante al pasar el mouse */
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .club-mock-logo {
-            font-size: 3rem;
-            margin-bottom: 15px;
+        /* EL PUNTO GOD: Contenedor circular con aura neón para el escudo */
+        .club-logo-container {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%; /* Lo hace un círculo perfecto */
+            margin: 0 auto 15px auto; /* Lo centra horizontalmente */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
         }
+
+        .club-card:hover .club-logo-container {
+            transform: scale(1.05); /* El escudo se agranda un poquito al pasar el mouse */
+        }
+
+        /* Imagen del Escudo */
+        .escudo-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain; /* Ajusta la imagen sin deformarla */
+        }
+
+        /* Auras personalizadas por club (Fondo semitransparente + borde brillante) */
+        .bsc-aura { background-color: rgba(255, 215, 0, 0.15); border: 2px solid #ffd700; }
+        .ldu-aura { background-color: rgba(255, 255, 255, 0.1); border: 2px solid #ffffff; }
+        .idv-aura { background-color: rgba(0, 82, 204, 0.2); border: 2px solid #38bdf8; }
+        .cse-aura { background-color: rgba(0, 128, 255, 0.15); border: 2px solid #0080ff; }
+
+        /* Bordes inferiores estéticos de las tarjetas */
+        .bsc { border-bottom: 4px solid #ffd700; }
+        .ldu { border-bottom: 4px solid #ffffff; }
+        .idv { border-bottom: 4px solid #38bdf8; }
+        .cse { border-bottom: 4px solid #0080ff; }
 
         .club-card h3 {
             margin: 10px 0 5px 0;
@@ -129,12 +161,6 @@
             color: #64748b;
             margin: 0;
         }
-
-        /* BORDES PERSONALIZADOS CON LOS COLORES DE CADA CLUB */
-        .bsc { border-bottom: 4px solid #ffd700; }     /* Barcelona - Amarillo */
-        .idv { border-bottom: 4px solid #0052cc; }     /* Independiente - Azul */
-        .ldu { border-bottom: 4px solid #ffffff; }     /* Liga de Quito - Blanco */
-        .cse { border-bottom: 4px solid #0080ff; }     /* Emelec - Eléctrico */
 
         /* Pie de página */
         footer {
@@ -188,25 +214,33 @@
             <div class="equipos-grid">
                 
                 <div class="club-card bsc">
-                    <div class="club-mock-logo">🟡</div>
+                    <div class="club-logo-container bsc-aura">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Barcelona_Esporte_Clube_rj.png" alt="Barcelona S.C." class="escudo-img">
+                    </div>
                     <h3>Barcelona S.C.</h3>
                     <p>Guayaquil</p>
                 </div>
 
                 <div class="club-card ldu">
-                    <div class="club-mock-logo">⚪</div>
+                    <div class="club-logo-container ldu-aura">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Liga_Deportiva_Universitaria_Quito.png" alt="Liga de Quito" class="escudo-img">
+                    </div>
                     <h3>Liga de Quito</h3>
                     <p>Quito</p>
                 </div>
 
                 <div class="club-card idv">
-                    <div class="club-mock-logo">⚫</div>
+                    <div class="club-logo-container idv-aura">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Independiente_del_valle_2020.png" alt="IDV" class="escudo-img">
+                    </div>
                     <h3>Independiente del Valle</h3>
                     <p>Sangolquí</p>
                 </div>
 
                 <div class="club-card cse">
-                    <div class="club-mock-logo">🔵</div>
+                    <div class="club-logo-container cse-aura">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Cs_emelec_ecuador.png" alt="Emelec" class="escudo-img">
+                    </div>
                     <h3>Emelec</h3>
                     <p>Guayaquil</p>
                 </div>
