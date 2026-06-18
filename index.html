@@ -269,6 +269,62 @@
         .zona-sudamericana {
             border-left: 4px solid #0066cc;
         }
+        /* 🏟️ CAMBIO DE LOOK: El entorno del estadio */
+        body {
+            background: linear-gradient(to bottom, #0d131a 40%, #14251c 100%);
+            /* Nota: Este degradado simula la oscuridad de la noche difuminándose 
+               hacia el verde del césped iluminado por los focos del estadio */
+        }
+
+        /* 📺 LA VALLA PUBLICITARIA LED (Estilo Ras de Campo) */
+        .valla-led-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 4px;
+            background: #111; /* Marco de la estructura metálica */
+            border-radius: 6px;
+            box-shadow: 0 0 25px rgba(0, 166, 81, 0.2), inset 0 0 10px #000;
+            border-bottom: 5px solid #222; /* Base de la valla */
+        }
+
+        .valla-led-pantalla {
+            background: #050a0e;
+            border: 2px solid #333;
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            /* El brillo de la pantalla LED real en la cancha */
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05), 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Efecto de texto digital brillando en la valla */
+        .valla-led-contenido h3 {
+            color: #ffd700;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.4);
+            animation: brilloLed 2s infinite alternate;
+        }
+
+        .valla-led-contenido p {
+            color: #ffffff;
+            font-size: 1rem;
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        /* Animación para simular el parpadeo sutil de una pantalla del estadio */
+        @keyframes brilloLed {
+            0% { opacity: 0.95; }
+            100% { opacity: 1; text-shadow: 0 0 12px rgba(255, 215, 0, 0.9), 0 0 25px rgba(255, 215, 0, 0.6); }
+        }
     </style>
 </head>
 <body>
