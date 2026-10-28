@@ -3,36 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ecuafut - Pronósticos dentro del estadio</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<title>Ecuafut .EC - Pronósticos con Valor</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Space Grotesk',sans-serif}
-body{height:100vh;overflow:hidden;background:url('https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=2000') center/cover no-repeat;display:flex;flex-direction:column}
-.overlay{position:absolute;inset:0;background:radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%)}
-header{position:relative;z-index:10;margin:15px;padding:15px 25px;background:rgba(20,25,35,0.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);border-radius:18px;display:flex;justify-content:space-between;align-items:center;color:white}
-.logo{font-size:24px;font-weight:700}.logo span{color:#00E5FF}
-.card{background:rgba(20,25,35,0.82);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:20px;color:white}
-.ad-track{position:absolute;bottom:22%;left:10%;right:10%;height:38px;display:flex;gap:2px;transform:perspective(600px) rotateX(45deg);z-index:6}
-.ad-slot{flex:1;background:#111;color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:1px solid #333}
-.ad-slot:nth-child(even){background:#00E5FF;color:#000}
-.center-pitch{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white}
-.center-pitch h1{font-size:58px;line-height:0.9}
-.btn{margin-top:20px;background:#00E5FF;color:#000;padding:12px 28px;border-radius:30px;font-weight:700;text-decoration:none}
+body{min-height:100vh;background:#0a0e14;color:white;overflow-x:hidden}
+.bg{position:fixed;inset:0;background:url('https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=2000') center/cover no-repeat;z-index:0}
+.bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7))}
+.wrap{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;padding:14px;gap:14px}
+.top{ background:rgba(20,26,36,0.9);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center }
+.logo{font-weight:700;font-size:22px}.logo b{color:#00E5FF}
+.main{display:grid;grid-template-columns:300px 1fr 320px;gap:14px;flex:1}
+.card{background:rgba(20,26,36,0.88);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:20px}
+.hero{position:relative;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:560px;background:radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=2000') center/cover}
+.hero h1{font-size:64px;line-height:0.9;letter-spacing:-2px;text-shadow:0 4px 30px rgba(0,0,0,0.8)}
+.btn{margin-top:22px;background:#00E5FF;color:#000;padding:14px 28px;border-radius:999px;font-weight:700;text-decoration:none;transition:0.2s}.btn:hover{transform:scale(1.05)}
+.ad-row{position:absolute;bottom:0;left:0;right:0;display:flex;height:36px;transform-origin:bottom;box-shadow:0 -10px 40px rgba(0,0,0,0.5)}
+.ad{flex:1;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:0.5px;padding:0 10px;white-space:nowrap;overflow:hidden}
+.ad:nth-child(odd){background:#111;color:#fff;transform:skewX(-12deg)}.ad:nth-child(even){background:#00E5FF;color:#000;transform:skewX(-12deg)}
+.stat{padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;font-size:14px;color:rgba(255,255,255,0.7)}.stat b{color:white}
+@media(max-width:1000px){.main{grid-template-columns:1fr}.hero{min-height:420px}.hero h1{font-size:38px}.ad{font-size:8px}}
 </style>
 </head>
 <body>
-<div class="overlay"></div>
-<header><div class="logo">ECUAFUT <span>.EC</span></div><div>Banca $17.54</div></header>
-<div class="ad-track">
-<div class="ad-slot">TU PUBLICIDAD AQUÍ - $5/mes</div>
-<div class="ad-slot">ECUABET • APUESTA RESPONSABLE</div>
-<div class="ad-slot">ANUNCIA TU NEGOCIO LOCAL</div>
-<div class="ad-slot">ECUAFUT - VALOR REAL</div>
+<div class="bg"></div>
+<div class="wrap">
+<div class="top"><div class="logo">ECUAFUT <b>.EC</b></div><div style="display:flex;gap:16px;font-size:13px;opacity:0.7"><span style="opacity:1;border-bottom:2px solid #00E5FF">Estadio</span><span>Stats Ecuador</span><span>Pronósticos</span><span>Banca $17.54</span></div></div>
+<div class="main">
+<div class="card">
+<div style="font-weight:700;margin-bottom:6px">🏟️ Match Center</div>
+<div class="stat"><span>📊 Live Stats</span><b>›</b></div>
+<div class="stat"><span>⚽ Team Lineup</span><b>›</b></div>
+<div class="stat"><span>📈 Valor Esperado</span><b style="color:#00E5FF">+19%</b></div>
+<div class="stat"><span>🎯 Highlights</span><b>›</b></div>
+<div style="margin-top:18px;background:rgba(0,229,255,0.1);border:1px solid rgba(0,229,255,0.2);padding:12px;border-radius:12px;font-size:13px">Banca: <b>$17.54</b><br>ROI Serie B: +12.3%<br>Próximo: Viernes</div>
 </div>
-<main style="flex:1;position:relative;z-index:5;display:grid;grid-template-columns:280px 1fr 300px;gap:15px;padding:15px">
-<div class="card">🏟️ Match Center<br><br>📊 Live Stats<br>⚽ Team Lineup<br>📈 Valor +19%</div>
-<div class="center-pitch"><h1>PRONÓSTICOS<br>CON VALOR</h1><a class="btn" href="#">Ver Pronóstico Viernes →</a></div>
-<div class="card">PRÓXIMO PARTIDO<br><br>Ceará vs Goiás 2-0<br><br>ESPACIO PUBLICITARIO 300x100 $10/mes</div>
-</main>
+<div class="hero">
+<h1>PRONÓSTICOS<br>CON VALOR</h1>
+<p style="margin-top:12px;background:rgba(0,0,0,0.45);padding:8px 14px;border-radius:999px;font-size:13px">Estadística de Ecuador que las casas no ven</p>
+<a class="btn" href="#">Ver Pronóstico Viernes →</a>
+<div class="ad-row">
+<div class="ad">TU PUBLICIDAD AQUÍ - $5/mes</div>
+<div class="ad">ECUABET • APUESTA RESPONSABLE</div>
+<div class="ad">ANUNCIA TU NEGOCIO LOCAL</div>
+<div class="ad">ECUAFUT - VALOR REAL</div>
+</div>
+</div>
+<div class="card">
+<div style="font-size:11px;letter-spacing:1.5px;color:#00E5FF">PRÓXIMO PARTIDO</div>
+<div style="margin-top:10px;font-weight:700;font-size:18px">Serie B - Viernes</div>
+<div style="margin-top:16px;display:flex;justify-content:space-between"><span>Ceará vs Goiás</span><b style="color:#ff5a5a">2-0</b></div>
+<div style="margin-top:8px;font-size:13px;color:rgba(255,255,255,0.5)">Pick: OVER 2.5 @2.05<br>Esperado: 2.75 goles • Fórmula 4 partidos</div>
+<div style="margin-top:22px"><div style="font-size:11px;opacity:0.6">PUBLICIDAD ARCO SUR</div><div style="margin-top:8px;border:1px dashed #00E5FF;background:#000;padding:22px;text-align:center;border-radius:12px;font-size:11px;opacity:0.8">ESPACIO 300x100<br><b>$10/mes</b><br>Contacta: ecuafut.ec</div></div>
+</div>
+</div>
+</div>
 </body>
 </html>
