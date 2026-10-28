@@ -1,89 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atahualpa Ecuabet</title>
-<style>
-  body { margin:0; background:#000; }
-  .estadio-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    line-height: 0;
-  }
-  .estadio-wrapper img.fondo {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  /* CINTAS */
-  .led-strip {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    background: #FFEB00;
-    overflow: hidden;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    z-index: 10;
-  }
-  .led-strip.bottom { bottom: 12%; height: 42px; }
-  .led-strip.middle { bottom: 38%; height: 26px; }
-
-  .led-track {
-    display: flex;
-    animation: scroll-led 18s linear infinite;
-  }
-  .led-item {
-    background: #FFEB00;
-    color: #000;
-    font-weight: 900;
-    font-size: 18px;
-    padding: 5px 18px;
-    margin: 0 6px;
-    border-radius: 8px;
-    flex-shrink: 0;
-  }
-  .led-strip.middle .led-item { font-size: 13px; padding: 3px 12px; }
-
-  @keyframes scroll-led {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* PANTALLAS */
-  .pantalla-led {
-    position: absolute;
-    top: 33%;
-    width: 16%;
-    height: 9%;
-    background: #FFEB00;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 1.8vw;
-    color: #000;
-    border-radius: 4px;
-    z-index: 10;
-    animation: pulso 1.5s infinite;
-  }
-  .pantalla-led.left { left: 3%; }
-  .pantalla-led.right { right: 3%; }
-  @keyframes pulso {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-</style>
-</head>
-<body>
-
 <div class="estadio-wrapper">
-  <!-- AQUI VA TU IMAGEN DEL ATAHUALPA -->
-  <img class="fondo" src="https://i.ibb.co/xxxx/tu-estadio-ecuabet.jpg" alt="Estadio Atahualpa">
+  <img class="fondo" src="estadio.jpg" style="width:100%; display:block;">
 
   <div class="pantalla-led left">Ecuabet</div>
   <div class="pantalla-led right">Ecuabet</div>
@@ -102,6 +18,3 @@
     </div>
   </div>
 </div>
-
-</body>
-</html>
