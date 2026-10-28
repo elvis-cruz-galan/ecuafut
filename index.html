@@ -3,156 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cinta LED Ecuabet - Atahualpa</title>
+<title>Atahualpa Ecuabet</title>
 <style>
-  body {
-    margin: 0;
-    background: #0a0a0a;
-    font-family: Arial, Black, sans-serif;
-  }
-
-  /* CONTENEDOR ESTADIO SIMULADO */
-  .estadio-container {
+  body { margin:0; background:#000; }
+  .estadio-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    background: url('TU-FOTO-ESTADIO-AQUI.jpg') center/cover;
-    height: 600px;
-    overflow: hidden;
+    line-height: 0;
   }
-
-  /* CINTA LED - ESTILO REAL */
+  .estadio-wrapper img.fondo {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  /* CINTAS */
   .led-strip {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 40px;
     background: #FFEB00;
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
     overflow: hidden;
     white-space: nowrap;
     display: flex;
     align-items: center;
+    z-index: 10;
   }
-
-  .led-strip.bottom {
-    bottom: 30px;
-    height: 48px;
-  }
-
-  .led-strip.middle {
-    bottom: 180px;
-    height: 32px;
-    background: #FFEB00;
-  }
+  .led-strip.bottom { bottom: 12%; height: 42px; }
+  .led-strip.middle { bottom: 38%; height: 26px; }
 
   .led-track {
     display: flex;
-    animation: scroll-led 25s linear infinite;
+    animation: scroll-led 18s linear infinite;
   }
-
   .led-item {
     background: #FFEB00;
     color: #000;
     font-weight: 900;
-    font-size: 22px;
-    padding: 6px 22px;
-    margin: 0 8px;
-    border-radius: 10px;
-    text-transform: capitalize;
-    letter-spacing: -0.5px;
+    font-size: 18px;
+    padding: 5px 18px;
+    margin: 0 6px;
+    border-radius: 8px;
     flex-shrink: 0;
   }
-
-  .led-strip.middle .led-item {
-    font-size: 16px;
-    padding: 4px 16px;
-  }
+  .led-strip.middle .led-item { font-size: 13px; padding: 3px 12px; }
 
   @keyframes scroll-led {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
-  /* PANTALLAS GRANDES LATERALES */
+  /* PANTALLAS */
   .pantalla-led {
     position: absolute;
-    top: 80px;
-    width: 180px;
-    height: 90px;
+    top: 33%;
+    width: 16%;
+    height: 9%;
     background: #FFEB00;
-    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 900;
-    font-size: 28px;
+    font-size: 1.8vw;
     color: #000;
-    animation: pulso 1.5s ease-in-out infinite;
-    box-shadow: 0 0 20px rgba(255,235,0,0.6);
+    border-radius: 4px;
+    z-index: 10;
+    animation: pulso 1.5s infinite;
   }
-
-  .pantalla-led.left { left: 20px; }
-  .pantalla-led.right { right: 20px; }
-
+  .pantalla-led.left { left: 3%; }
+  .pantalla-led.right { right: 3%; }
   @keyframes pulso {
-    0%,100% { transform: scale(1); filter: brightness(1); }
-    50% { transform: scale(1.03); filter: brightness(1.15); }
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
   }
 </style>
 </head>
 <body>
 
-<div class="estadio-container">
-  <!-- PANTALLAS LATERALES GRANDES -->
+<div class="estadio-wrapper">
+  <!-- AQUI VA TU IMAGEN DEL ATAHUALPA -->
+  <img class="fondo" src="https://i.ibb.co/xxxx/tu-estadio-ecuabet.jpg" alt="Estadio Atahualpa">
+
   <div class="pantalla-led left">Ecuabet</div>
   <div class="pantalla-led right">Ecuabet</div>
 
-  <!-- CINTA DEL MEDIO -->
   <div class="led-strip middle">
     <div class="led-track">
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <!-- DUPLICADO PARA LOOP INFINITO -->
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div>
     </div>
   </div>
 
-  <!-- CINTA INFERIOR AL RAS DE CANCHA -->
   <div class="led-strip bottom">
     <div class="led-track">
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <!-- DUPLICADO PARA LOOP INFINITO -->
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
-      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div><div class="led-item">Ecuabet</div>
     </div>
   </div>
 </div>
