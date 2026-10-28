@@ -2,112 +2,41 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atahualpa - Ecuabet LED</title>
+<title>Atahualpa Ecuabet Final</title>
 <style>
-  body{margin:0;background:#000;display:flex;justify-content:center;padding:20px 0;font-family:Arial, sans-serif;}
-  .estadio{
-    position:relative;
-    width:95%;
-    max-width:1100px;
-    line-height:0;
-    box-shadow:0 10px 40px rgba(0,0,0,.6);
-  }
-  .estadio img.base{
-    width:100%;
-    height:auto;
-    display:block;
-    border-radius:8px;
-  }
-  /* CINTAS AMARILLAS */
-  .led{
-    position:absolute;
-    left:0;
-    width:100%;
-    background:#FFEB00;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    white-space:nowrap;
-    z-index:5;
-    border-top:1px solid #000;
-    border-bottom:1px solid #000;
-  }
-  .led.bottom{bottom:11.5%; height:38px;}
-  .led.middle{bottom:38%; height:24px;}
-
-  .track{
-    display:flex;
-    animation:scroll 16s linear infinite;
-  }
-  .item{
-    background:#FFEB00;
-    color:#000;
-    font-weight:900;
-    font-size:17px;
-    padding:4px 18px;
-    margin:0 5px;
-    border-radius:7px;
-    flex-shrink:0;
-    line-height:1;
-  }
-  .led.middle .item{font-size:12px;padding:2px 10px;}
-  
-  @keyframes scroll{
-    0%{transform:translateX(0)}
-    100%{transform:translateX(-50%)}
-  }
-
-  /* PANTALLAS SUPERIORES */
-  .pantalla{
-    position:absolute;
-    top:31.5%;
-    width:15.5%;
-    height:7.8%;
-    background:#FFEB00;
-    color:#000;
-    font-weight:900;
-    font-size:1.6vw;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:4px;
-    z-index:6;
-    animation:brillo 1.4s ease-in-out infinite;
-  }
-  .pantalla.left{left:3.2%;}
-  .pantalla.right{right:2.8%;}
-  @keyframes brillo{
-    0%,100%{filter:brightness(1)}
-    50%{filter:brightness(1.2);transform:scale(1.03)}
-  }
-
-  /* Responsive texto pantallas */
-  @media(min-width:1100px){.pantalla{font-size:18px;}}
+  body{margin:0;background:#000;}
+  .wrap{position:relative;width:100%;max-width:1100px;margin:0 auto;line-height:0;}
+  .wrap img{width:100%;display:block;}
+  .led{position:absolute;left:0;width:100%;background:#FFEB00;display:flex;overflow:hidden;z-index:10;}
+  .led.bottom{bottom:11%;height:40px;align-items:center;}
+  .led.middle{bottom:37.5%;height:26px;align-items:center;}
+  .track{display:flex;animation:mov 15s linear infinite;}
+  .item{color:#000;font-family:Arial Black;font-size:18px;padding:0 20px;flex-shrink:0;}
+  .led.middle .item{font-size:12px;}
+  @keyframes mov{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .box{position:absolute;top:31%;width:15%;height:7%;background:#FFEB00;color:#000;font-family:Arial Black;display:flex;justify-content:center;align-items:center;z-index:11;font-size:18px;border-radius:4px;}
+  .box.l{left:3%} .box.r{right:3%}
 </style>
 </head>
 <body>
-
-<div class="estadio">
-  <img class="base" src="estadio.jpg" alt="Estadio Atahualpa">
-
-  <div class="pantalla left">Ecuabet</div>
-  <div class="pantalla right">Ecuabet</div>
+<div class="wrap">
+  <img src="estadio.jpg">
+  <div class="box l">Ecuabet</div>
+  <div class="box r">Ecuabet</div>
 
   <div class="led middle">
     <div class="track">
-      <div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div>
-      <div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div>
+      <span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span>
+      <span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span>
     </div>
   </div>
 
   <div class="led bottom">
     <div class="track">
-      <div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div>
-      <div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div><div class="item">Ecuabet</div>
+      <span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span>
+      <span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span><span class="item">Ecuabet</span>
     </div>
   </div>
 </div>
-
 </body>
 </html>
