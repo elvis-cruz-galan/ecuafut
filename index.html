@@ -3,31 +3,159 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ecuafut .EC</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<title>Cinta LED Ecuabet - Atahualpa</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Space Grotesk',sans-serif}
-body{height:100vh;overflow:hidden;background:#000}
-.stadium{position:fixed;inset:0;background:url('https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=2000') center/cover no-repeat}
-.stadium::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.8) 80%)}
-header, .side, .center, .leds{position:fixed;z-index:10}
-header{top:12px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:rgba(15,22,33,0.9);border:1px solid rgba(255,255,255,0.12);border-radius:14px;color:#fff}
-.side{top:72px;bottom:12px;width:290px;background:rgba(15,22,33,0.88);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:18px;color:#fff}
-.side-left{left:12px}.side-right{right:12px}
-.center{inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;z-index:5}
-.center h1{font-size:70px;line-height:0.9;text-shadow:0 10px 40px #000}
-.btn{margin-top:20px;background:#00E5FF;color:#000;padding:14px 28px;border-radius:99px;font-weight:700;text-decoration:none}
-.leds{bottom:30px;left:320px;right:320px;height:34px;display:flex;gap:2px;transform:perspective(800px) rotateX(25deg)}
-.led{flex:1;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;border:1px solid #222}
-.led:nth-child(even){background:#00E5FF;color:#000}
+  body {
+    margin: 0;
+    background: #0a0a0a;
+    font-family: Arial, Black, sans-serif;
+  }
+
+  /* CONTENEDOR ESTADIO SIMULADO */
+  .estadio-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: url('TU-FOTO-ESTADIO-AQUI.jpg') center/cover;
+    height: 600px;
+    overflow: hidden;
+  }
+
+  /* CINTA LED - ESTILO REAL */
+  .led-strip {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #FFEB00;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+
+  .led-strip.bottom {
+    bottom: 30px;
+    height: 48px;
+  }
+
+  .led-strip.middle {
+    bottom: 180px;
+    height: 32px;
+    background: #FFEB00;
+  }
+
+  .led-track {
+    display: flex;
+    animation: scroll-led 25s linear infinite;
+  }
+
+  .led-item {
+    background: #FFEB00;
+    color: #000;
+    font-weight: 900;
+    font-size: 22px;
+    padding: 6px 22px;
+    margin: 0 8px;
+    border-radius: 10px;
+    text-transform: capitalize;
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+  }
+
+  .led-strip.middle .led-item {
+    font-size: 16px;
+    padding: 4px 16px;
+  }
+
+  @keyframes scroll-led {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* PANTALLAS GRANDES LATERALES */
+  .pantalla-led {
+    position: absolute;
+    top: 80px;
+    width: 180px;
+    height: 90px;
+    background: #FFEB00;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 28px;
+    color: #000;
+    animation: pulso 1.5s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255,235,0,0.6);
+  }
+
+  .pantalla-led.left { left: 20px; }
+  .pantalla-led.right { right: 20px; }
+
+  @keyframes pulso {
+    0%,100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.03); filter: brightness(1.15); }
+  }
 </style>
 </head>
 <body>
-<div class="stadium"></div>
-<header><div>ECUAFUT <span style="color:#00E5FF">.EC</span></div><div style="font-size:12px;opacity:0.6">Estadio • Stats Ecuador • Pronósticos • Banca $17.54</div></header>
-<div class="side side-left">🏟️ Match Center<br><br>📊 Live Stats<br>⚽ Team Lineup<br>📈 Valor +19%<br><br>Banca: $17.54</div>
-<div class="center"><h1>PRONÓSTICOS<br>CON VALOR</h1><a class="btn" href="#">Ver Pronóstico Viernes →</a></div>
-<div class="side side-right">PRÓXIMO PARTIDO<br><br>Serie B - Viernes<br>Ceará vs Goiás 2-0<br><br>ESPACIO 300x100 $10/mes</div>
-<div class="leds"><div class="led">TU PUBLICIDAD $5/mes</div><div class="led">ECUABET</div><div class="led">NEGOCIO LOCAL</div><div class="led">ECUAFUT</div></div>
+
+<div class="estadio-container">
+  <!-- PANTALLAS LATERALES GRANDES -->
+  <div class="pantalla-led left">Ecuabet</div>
+  <div class="pantalla-led right">Ecuabet</div>
+
+  <!-- CINTA DEL MEDIO -->
+  <div class="led-strip middle">
+    <div class="led-track">
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <!-- DUPLICADO PARA LOOP INFINITO -->
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+    </div>
+  </div>
+
+  <!-- CINTA INFERIOR AL RAS DE CANCHA -->
+  <div class="led-strip bottom">
+    <div class="led-track">
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <!-- DUPLICADO PARA LOOP INFINITO -->
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+      <div class="led-item">Ecuabet</div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
