@@ -3,57 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ecuafut .EC - Dentro del Estadio</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Ecuafut .EC</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Space Grotesk',sans-serif}
 body{height:100vh;overflow:hidden;background:#000}
-.stadium{position:fixed;inset:0;background:url('https://images.unsplash.com/photo-1577224680297-cc6c66f6f2d5?q=80&w=2000') center/cover no-repeat;z-index:0}
-.stadium::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.75) 85%)}
-header{position:fixed;top:14px;left:14px;right:14px;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:14px 22px;background:rgba(18,24,35,0.88);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:16px;color:white}
-.logo{font-weight:700;font-size:22px;letter-spacing:-0.5px}.logo span{color:#00E5FF}
-.nav{display:flex;gap:22px;font-size:13px;color:rgba(255,255,255,0.6)}.nav b{color:white;border-bottom:2px solid #00E5FF;padding-bottom:2px}
-.side{position:fixed;top:76px;bottom:14px;width:300px;z-index:9;background:rgba(18,24,35,0.86);backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:20px;color:white}
-.side-left{left:14px}.side-right{right:14px}
-.item{padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;font-size:14px;color:rgba(255,255,255,0.7)} .item b{color:white}
-.center{position:fixed;inset:0;z-index:5;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white;pointer-events:none}
-.center h1{font-size:72px;line-height:0.9;letter-spacing:-3px;text-shadow:0 8px 40px rgba(0,0,0,0.9)}
-.center p{margin-top:14px;background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);padding:8px 16px;border-radius:999px;font-size:13px;pointer-events:auto}
-.btn{margin-top:22px;background:#00E5FF;color:#000;padding:14px 30px;border-radius:999px;font-weight:700;text-decoration:none;pointer-events:auto;box-shadow:0 8px 30px rgba(0,229,255,0.4);transition:0.2s}.btn:hover{transform:translateY(-2px)}
-.leds{position:fixed;bottom:110px;left:340px;right:340px;z-index:8;height:38px;display:flex;gap:2px;transform:perspective(900px) rotateX(30deg);filter:drop-shadow(0 10px 20px rgba(0,0,0,0.8))}
-.led{flex:1;background:#0a0a0a;border:1px solid #222;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;letter-spacing:0.8px}
-.led:nth-child(2){background:#00E5FF;color:#000}.led:nth-child(4){background:#00E5FF;color:#000}
-@media(max-width:1100px){.side{display:none}.leds{left:14px;right:14px;bottom:14px;transform:none}.center h1{font-size:40px}header .nav{display:none}}
+.stadium{position:fixed;inset:0;background:url('https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?q=80&w=2000') center/cover no-repeat}
+.stadium::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.8) 80%)}
+header, .side, .center, .leds{position:fixed;z-index:10}
+header{top:12px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:rgba(15,22,33,0.9);border:1px solid rgba(255,255,255,0.12);border-radius:14px;color:#fff}
+.side{top:72px;bottom:12px;width:290px;background:rgba(15,22,33,0.88);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:18px;color:#fff}
+.side-left{left:12px}.side-right{right:12px}
+.center{inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;z-index:5}
+.center h1{font-size:70px;line-height:0.9;text-shadow:0 10px 40px #000}
+.btn{margin-top:20px;background:#00E5FF;color:#000;padding:14px 28px;border-radius:99px;font-weight:700;text-decoration:none}
+.leds{bottom:30px;left:320px;right:320px;height:34px;display:flex;gap:2px;transform:perspective(800px) rotateX(25deg)}
+.led{flex:1;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;border:1px solid #222}
+.led:nth-child(even){background:#00E5FF;color:#000}
 </style>
 </head>
 <body>
 <div class="stadium"></div>
-<header><div class="logo">ECUAFUT <span>.EC</span></div><div class="nav"><b>Estadio</b><span>Stats Ecuador</span><span>Pronósticos</span><span>Banca $17.54</span></div><div>⚙️</div></header>
-<div class="side side-left">
-<div style="font-weight:700">🏟️ Match Center</div>
-<div class="item" style="margin-top:18px"><span>📊 Live Stats</span><b>›</b></div>
-<div class="item"><span>⚽ Team Lineup</span><b>›</b></div>
-<div class="item"><span>📈 Valor Esperado</span><b style="color:#00E5FF">+19%</b></div>
-<div class="item"><span>🎯 Highlights</span><b>›</b></div>
-<div style="margin-top:20px;background:rgba(0,229,255,0.12);border:1px solid rgba(0,229,255,0.25);padding:14px;border-radius:14px;font-size:13px;line-height:1.4">Banca: <b>$17.54</b><br>ROI Serie B: <b>+12.3%</b><br>Próximo: Viernes • LigaPro</div>
-</div>
-<div class="center">
-<h1>PRONÓSTICOS<br>CON VALOR</h1>
-<p>Estadística de Ecuador que las casas no ven • Fórmula últimos 4 partidos</p>
-<a class="btn" href="#">Ver Pronóstico Viernes →</a>
-</div>
-<div class="side side-right">
-<div style="font-size:11px;letter-spacing:1.5px;color:#00E5FF">PRÓXIMO PARTIDO</div>
-<div style="margin-top:10px;font-weight:700;font-size:19px">Serie B - Viernes</div>
-<div style="margin-top:16px;display:flex;justify-content:space-between"><span>Ceará vs Goiás</span><b style="color:#ff5a5a">2-0 ❌</b></div>
-<div style="margin-top:8px;font-size:13px;color:rgba(255,255,255,0.5);line-height:1.4">Pick: OVER 2.5 @2.05<br>Esperado xG: 2.75 goles</div>
-<div style="margin-top:22px"><div style="font-size:11px;opacity:0.6">PUBLICIDAD ARCO SUR</div><div style="margin-top:8px;background:#000;border:1px dashed #00E5FF;padding:24px;text-align:center;border-radius:12px;font-size:11px;line-height:1.5">ESPACIO 300x100<br><b style="font-size:13px">$10/mes</b><br>Contacta: ecuafut.ec</div></div>
-</div>
-<div class="leds">
-<div class="led">TU PUBLICIDAD AQUÍ - $5/mes</div>
-<div class="led">ECUABET • APUESTA RESPONSABLE</div>
-<div class="led">ANUNCIA TU NEGOCIO LOCAL</div>
-<div class="led">ECUAFUT - VALOR REAL</div>
-</div>
+<header><div>ECUAFUT <span style="color:#00E5FF">.EC</span></div><div style="font-size:12px;opacity:0.6">Estadio • Stats Ecuador • Pronósticos • Banca $17.54</div></header>
+<div class="side side-left">🏟️ Match Center<br><br>📊 Live Stats<br>⚽ Team Lineup<br>📈 Valor +19%<br><br>Banca: $17.54</div>
+<div class="center"><h1>PRONÓSTICOS<br>CON VALOR</h1><a class="btn" href="#">Ver Pronóstico Viernes →</a></div>
+<div class="side side-right">PRÓXIMO PARTIDO<br><br>Serie B - Viernes<br>Ceará vs Goiás 2-0<br><br>ESPACIO 300x100 $10/mes</div>
+<div class="leds"><div class="led">TU PUBLICIDAD $5/mes</div><div class="led">ECUABET</div><div class="led">NEGOCIO LOCAL</div><div class="led">ECUAFUT</div></div>
 </body>
 </html>
