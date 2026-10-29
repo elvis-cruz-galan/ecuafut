@@ -1,11 +1,161 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MATCHHUB</title></head>
-<body style="margin:0;">
-<div style="position:relative; width:100%; height:100vh; font-family:Arial; overflow:hidden;">
-<img src="https://elvis-cruz-galan.github.io/ecuafut/estadio_final.jpg" style="position:absolute; width:100%; height:100%; object-fit:cover;">
-<div style="position:absolute; top:15px; left:15px; right:15px; height:50px; background: rgba(20,35,60,0.9); border-radius:12px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; color:white;"><b>MATCH<span style="color:#3bb2ff;">HUB</span></b><span style="font-size:11px;">Overview Fixtures Live Stats</span></div>
-<div style="position:absolute; bottom:15px; left:15px; right:15px; display:flex; justify-content:space-between;"><div style="background: rgba(20,35,60,0.9); border-radius:10px; padding:10px; color:white;">LIVE MATCH<br><b>1 - 0</b></div><div style="background: rgba(20,35,60,0.9); border-radius:10px; padding:10px; color:white;">Shots 9|4 Corners 5|3</div></div>
-</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Estadio Web - Publicidad Real</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #050811;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Contenedor principal que mantiene la proporción del estadio */
+    .stadium-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      aspect-ratio: 16 / 9;
+      background: url('estadio_atahualpa_noche.jpg') center/cover no-repeat;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+    }
+
+    /* Estilo base para las vallas LED publicitarias */
+    .led-board {
+      position: absolute;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.85);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Animación del marquesina (scrolling continuo) */
+    .led-track {
+      display: flex;
+      gap: 40px;
+      animation: marquee 20s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Elemento publicitario (Ad Item) */
+    .ad-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 15px;
+      border-radius: 4px;
+      color: #fff;
+      text-shadow: 0 0 8px currentColor;
+    }
+
+    /* Colores y estilos de marcas de prueba */
+    .brand-pepsi { color: #004b93; background: #fff; }
+    .brand-adidas { color: #ffffff; background: #000; border: 1px solid #333; }
+    .brand-samsung { color: #1428a0; background: #fff; }
+    .brand-visa { color: #1a1f71; background: #f7b600; }
+    .brand-cocacola { color: #f40009; background: #fff; }
+
+    /* POSICIONAMIENTO DE LAS VALLAS EN EL ESTADIO */
+
+    /* 1. Valla LED Superior (Debajo de los palcos superiores) */
+    .led-top {
+      top: 53.5%;
+      height: 3.2%;
+      box-shadow: 0 0 12px rgba(0, 210, 255, 0.5);
+    }
+
+    /* 2. Valla LED Intermedia (Separador de bandejas del Atahualpa) */
+    .led-middle {
+      top: 70.2%;
+      height: 3.8%;
+      box-shadow: 0 0 15px rgba(0, 150, 255, 0.6);
+    }
+
+    /* 3. Valla LED Perimetral a Nivel de Cancha */
+    .led-pitch {
+      bottom: 12.5%;
+      height: 5.5%;
+      box-shadow: 0 -5px 25px rgba(0, 255, 200, 0.4), 0 5px 20px rgba(0, 255, 100, 0.3);
+    }
+
+    /* Ajuste de escala para pantallas de teléfono */
+    @media (max-width: 768px) {
+      .ad-item { font-size: 0.6rem; padding: 2px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenedor del Estadio -->
+  <div class="stadium-container">
+
+    <!-- 1. Valla LED Superior -->
+    <div class="led-board led-top">
+      <div class="led-track">
+        <div class="ad-item brand-samsung">SAMSUNG • SPONSOR OFICIAL</div>
+        <div class="ad-item brand-visa">VISA • PAGOS DIGITALES</div>
+        <div class="ad-item brand-pepsi">PEPSI • DISFRUTA EL JUEGO</div>
+        <!-- Duplicados para ciclo infinito -->
+        <div class="ad-item brand-samsung">SAMSUNG • SPONSOR OFICIAL</div>
+        <div class="ad-item brand-visa">VISA • PAGOS DIGITALES</div>
+        <div class="ad-item brand-pepsi">PEPSI • DISFRUTA EL JUEGO</div>
+      </div>
+    </div>
+
+    <!-- 2. Valla LED Intermedia -->
+    <div class="led-board led-middle">
+      <div class="led-track" style="animation-duration: 15s;">
+        <div class="ad-item brand-adidas">ADIDAS • IMPOSSIBLE IS NOTHING</div>
+        <div class="ad-item brand-cocacola">COCA-COLA • DESTAPA LA MAGIA</div>
+        <div class="ad-item brand-samsung">GALAXY S26 ULTRA</div>
+        <!-- Duplicados -->
+        <div class="ad-item brand-adidas">ADIDAS • IMPOSSIBLE IS NOTHING</div>
+        <div class="ad-item brand-cocacola">COCA-COLA • DESTAPA LA MAGIA</div>
+        <div class="ad-item brand-samsung">GALAXY S26 ULTRA</div>
+      </div>
+    </div>
+
+    <!-- 3. Valla LED Nivel Cancha -->
+    <div class="led-board led-pitch">
+      <div class="led-track" style="animation-duration: 12s;">
+        <div class="ad-item brand-pepsi">PEPSI COLA</div>
+        <div class="ad-item brand-adidas">ADIDAS SPORTS</div>
+        <div class="ad-item brand-visa">VISA CARD</div>
+        <div class="ad-item brand-cocacola">COCA-COLA</div>
+        <!-- Duplicados -->
+        <div class="ad-item brand-pepsi">PEPSI COLA</div>
+        <div class="ad-item brand-adidas">ADIDAS SPORTS</div>
+        <div class="ad-item brand-visa">VISA CARD</div>
+        <div class="ad-item brand-cocacola">COCA-COLA</div>
+      </div>
+    </div>
+
+  </div>
+
 </body>
 </html>
